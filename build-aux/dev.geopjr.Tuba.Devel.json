@@ -40,6 +40,58 @@
             ]
         },
         {
+            "name": "gstreamer",
+            "buildsystem": "meson",
+            "config-opts": [
+                "--buildtype=release",
+                "--wrap-mode=nodownload",
+                "--libdir=lib",
+
+                "-Dbase=enabled",
+                "-Dgood=enabled",
+                "-Dbad=enabled",
+                "-Dugly=disabled",
+                "-Dgst-examples=disabled",
+                "-Dqt5=disabled",
+                "-Dtests=disabled",
+                "-Dexamples=disabled",
+                "-Dintrospection=disabled",
+                "-Ddoc=disabled",
+                "-Dgtk_doc=disabled",
+
+                "-Dgst-plugins-base:orc=enabled",
+
+                "-Dgst-plugins-bad:aom=disabled",
+                "-Dgst-plugins-bad:v4l2codecs=enabled"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gitlab.freedesktop.org/rmader/gstreamer.git",
+                    "branch": "issue3464-1.24",
+                    "disable-submodules": true
+                }
+            ]
+        },
+        {
+            "name": "gtk4",
+            "buildsystem": "meson",
+            "config-opts": [
+                "--buildtype=release",
+
+                "-Dintrospection=enabled",
+                "-Dsysprof=enabled",
+                "-Dvulkan=disabled"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/gtk/4.14/gtk-4.14.3.tar.xz",
+                    "sha256": "2be5c858bdef1104d37848c9779c089372c8d31503f6efc4b94e53b546fc9a43"
+                }
+            ]
+        },
+        {
             "name": "tuba",
             "builddir": true,
             "buildsystem": "meson",
